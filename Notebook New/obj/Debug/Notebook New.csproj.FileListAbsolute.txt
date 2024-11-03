@@ -1,0 +1,10 @@
+C:\Users\acer\Desktop\unit\Notebook New\Notebook New\bin\Debug\Notebook New.exe.config
+C:\Users\acer\Desktop\unit\Notebook New\Notebook New\bin\Debug\Notebook New.exe
+C:\Users\acer\Desktop\unit\Notebook New\Notebook New\bin\Debug\Notebook New.pdb
+C:\Users\acer\Desktop\unit\Notebook New\Notebook New\obj\Debug\Notebook New.csproj.AssemblyReference.cache
+C:\Users\acer\Desktop\unit\Notebook New\Notebook New\obj\Debug\Notebook_New.Form1.resources
+C:\Users\acer\Desktop\unit\Notebook New\Notebook New\obj\Debug\Notebook_New.Properties.Resources.resources
+C:\Users\acer\Desktop\unit\Notebook New\Notebook New\obj\Debug\Notebook New.csproj.GenerateResource.cache
+C:\Users\acer\Desktop\unit\Notebook New\Notebook New\obj\Debug\Notebook New.csproj.CoreCompileInputs.cache
+C:\Users\acer\Desktop\unit\Notebook New\Notebook New\obj\Debug\Notebook New.exe
+C:\Users\acer\Desktop\unit\Notebook New\Notebook New\obj\Debug\Notebook New.pdb
