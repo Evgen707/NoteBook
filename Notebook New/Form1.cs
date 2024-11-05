@@ -27,36 +27,113 @@ namespace Notebook_New
         {
             fileName = "";
             isfileChange = false;
+            UpdateTextWithTitle();
         }
 
         public void CreateNewDocument(object sender, EventArgs e) 
         {
+            SaveUnsavedFile();
             textBox1.Text = "";
             fileName = "";
+            isfileChange |= false;
+            UpdateTextWithTitle();
         }
 
         public void OpenFile(object sender, EventArgs e)
         {
+            SaveUnsavedFile();
+            openFileDialog1.FileName = "";
             if(openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 try
                     {
                     StreamReader sr = new StreamReader(openFileDialog1.FileName);
                     textBox1.Text = sr.ReadToEnd();
+                    sr.Close();
                     fileName = openFileDialog1.FileName;
+                    isfileChange = false;
                 }
                 catch 
                 {
                     MessageBox.Show("Невозможно открыть файл!");
                 }
             }
+            UpdateTextWithTitle();
         }
 
+        public void SaveFile (string _fileName)
+        {
+            if (_fileName == "")
+            {
+                if(saveFileDialog1.ShowDialog() == DialogResult.OK) 
+                { 
+                    _fileName = saveFileDialog1.FileName;
+                }
+            }
+            try
+            {
+                StreamWriter sw = new StreamWriter(_fileName);
+                sw.WriteLine(textBox1.Text);
+                sw.Close();
+                fileName = _fileName;
+                isfileChange = false;
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно сохранить файл");
+            }
+            UpdateTextWithTitle();
+        }
 
+        public void Save (object sender, EventArgs e)
+        {
+            SaveFile(fileName);
+        }
+
+        public void SaveAs (object sender, EventArgs e)
+        {
+            SaveFile("");
+        }
+
+        private void OnTextChanged(object sender, EventArgs e)
+        {
+            if (!isfileChange)
+            {
+                this.Text = this.Text.Replace('*', ' ');
+                isfileChange = true;
+                this.Text = "*" + this.Text;
+            }
+        }
+
+        public void UpdateTextWithTitle()
+        {
+            if (fileName != "")
+            {
+                this.Text = fileName + " - Блокнот";
+            }
+            else
+            {
+                this.Text = "Безsмянный - Блокнот";
+            }
+            
+        }
+
+        public void SaveUnsavedFile()
+        {
+            if (isfileChange)
+            {
+                DialogResult result = MessageBox.Show("Сохранить изменения в файле?", "Сохранение файла", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (result == DialogResult.Yes)
+                {
+                    SaveFile(fileName);
+                }
+            }
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
+
     }
 }
