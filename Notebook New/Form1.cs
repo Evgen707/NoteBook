@@ -72,7 +72,7 @@ namespace Notebook_New
             }
             try
             {
-                StreamWriter sw = new StreamWriter(_fileName);
+                StreamWriter sw = new StreamWriter(_fileName + ".txt");
                 sw.WriteLine(textBox1.Text);
                 sw.Close();
                 fileName = _fileName;
@@ -130,10 +130,45 @@ namespace Notebook_New
             }
         }
 
+        public void CopyText()
+        {
+            Clipboard.SetText(textBox1.SelectedText);
+        }
+
+        public void CutText()
+        {
+            Clipboard.SetText(textBox1.SelectedText);
+            textBox1.Text = textBox1.Text.Remove(textBox1.SelectionStart, textBox1.SelectionLength);
+        }
+
+        public void PasteText()
+        {
+            textBox1.Text = textBox1.Text.Substring(0, textBox1.SelectionStart) + Clipboard.GetText() + textBox1.Text.Substring(textBox1.SelectionStart, textBox1.Text.Length - textBox1.SelectionStart);
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             
         }
 
+        private void OneCopyClick(object sender, EventArgs e)
+        {
+            CopyText();
+        }
+
+        private void OneCutClick(object sender, EventArgs e)
+        {
+            CutText();
+        }
+
+        private void OnePastClick(object sender, EventArgs e)
+        {
+            PasteText();
+        }
+
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveUnsavedFile();
+        }
     }
 }
