@@ -170,5 +170,11 @@ namespace Notebook_New
         {
             SaveUnsavedFile();
         }
+
+        private void OnFontClick(object sender, EventArgs e)
+        {
+            FontSettings fs = new FontSettings();
+            fs.Show();
+        }
     }
 }
