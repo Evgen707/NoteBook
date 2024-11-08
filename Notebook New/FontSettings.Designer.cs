@@ -30,8 +30,8 @@
         {
             this.ExampleLabel = new System.Windows.Forms.Label();
             this.ExampleText = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.fontBox = new System.Windows.Forms.ComboBox();
+            this.styleBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // ExampleLabel
@@ -52,14 +52,6 @@
             this.ExampleText.Size = new System.Drawing.Size(272, 59);
             this.ExampleText.TabIndex = 1;
             this.ExampleText.Text = "AaBbYyZz";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(677, 59);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
-            this.comboBox1.TabIndex = 2;
             // 
             // fontBox
             // 
@@ -88,18 +80,34 @@
             "28",
             "29",
             "30"});
-            this.fontBox.Location = new System.Drawing.Point(677, 94);
+            this.fontBox.Location = new System.Drawing.Point(12, 12);
             this.fontBox.Name = "fontBox";
-            this.fontBox.Size = new System.Drawing.Size(121, 28);
+            this.fontBox.Size = new System.Drawing.Size(124, 28);
             this.fontBox.TabIndex = 3;
+            this.fontBox.SelectedValueChanged += new System.EventHandler(this.OnFontChanged);
+            // 
+            // styleBox
+            // 
+            this.styleBox.FormattingEnabled = true;
+            this.styleBox.Items.AddRange(new object[] {
+            "обычный",
+            "курсив",
+            "полужирный",
+            "линия по середине",
+            "подчеркивание"});
+            this.styleBox.Location = new System.Drawing.Point(143, 11);
+            this.styleBox.Name = "styleBox";
+            this.styleBox.Size = new System.Drawing.Size(121, 28);
+            this.styleBox.TabIndex = 4;
+            this.styleBox.SelectedValueChanged += new System.EventHandler(this.OnStyleChanged);
             // 
             // FontSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.styleBox);
             this.Controls.Add(this.fontBox);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.ExampleText);
             this.Controls.Add(this.ExampleLabel);
             this.Name = "FontSettings";
@@ -113,7 +121,7 @@
 
         private System.Windows.Forms.Label ExampleLabel;
         private System.Windows.Forms.Label ExampleText;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox fontBox;
+        private System.Windows.Forms.ComboBox styleBox;
     }
 }
