@@ -32,6 +32,7 @@
             this.ExampleText = new System.Windows.Forms.Label();
             this.fontBox = new System.Windows.Forms.ComboBox();
             this.styleBox = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ExampleLabel
@@ -101,11 +102,22 @@
             this.styleBox.TabIndex = 4;
             this.styleBox.SelectedValueChanged += new System.EventHandler(this.OnStyleChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(363, 363);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(143, 43);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Ok";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FontSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.styleBox);
             this.Controls.Add(this.fontBox);
             this.Controls.Add(this.ExampleText);
@@ -123,5 +135,6 @@
         private System.Windows.Forms.Label ExampleText;
         private System.Windows.Forms.ComboBox fontBox;
         private System.Windows.Forms.ComboBox styleBox;
+        private System.Windows.Forms.Button button1;
     }
 }

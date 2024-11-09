@@ -13,8 +13,13 @@ namespace Notebook_New
 {
     public partial class Form1 : Form
     {
+        public int fontSize = 0;
+        public System.Drawing.FontStyle fs = FontStyle.Regular;
+
         public string fileName;
         public bool isfileChange;
+
+        public FontSettings FontSets;
 
         public Form1()
         {
@@ -173,8 +178,19 @@ namespace Notebook_New
 
         private void OnFontClick(object sender, EventArgs e)
         {
-            FontSettings fs = new FontSettings();
-            fs.Show();
+            FontSets = new FontSettings();
+            FontSets.Show();
+        }
+
+        private void OnFocws(object sender, EventArgs e)
+        {
+            if(FontSets != null)
+            {
+                fontSize = FontSets.fontSize;
+                fs = FontSets.fs;
+                textBox1.Font = new Font(textBox1.Font.FontFamily, fontSize, fs);
+                FontSets.Close();
+            }
         }
     }
 }
